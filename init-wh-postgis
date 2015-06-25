@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+IMG_NAME='whathood-postgis-img'
+
+base_dir = base_dir()
+build_image(base_dir,IMG_NAME)
+
+BEGIN {
+
+    def base_dir
+      return File.absolute_path(File.dirname(__FILE__))
+    end
+
+    def build_image(base_dir, image_name)
+      system "docker build -t #{image_name} #{base_dir}"
+    end
+}
