@@ -36,8 +36,6 @@ apt-get update
 ## Install pgRouting packages
 apt-get install -y postgresql-9.3-pgrouting
 
-apt-get install -y git
-
 # We will run any commands in this when the container starts
 ADD start-postgis.sh /start-postgis.sh
 RUN chmod 0755 /start-postgis.sh
