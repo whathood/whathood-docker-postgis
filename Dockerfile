@@ -7,6 +7,11 @@ ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+
+# needed for apt-add-repository
+apt-get install -y software-properties-common
+## Add pgRouting launchpad repository ("stable" or "unstable")
+add-apt-repository ppa:georepublic/pgrouting-unstable
 RUN apt-get -y update
 RUN apt-get -y install ca-certificates rpl pwgen
 
@@ -28,11 +33,6 @@ RUN chmod 0755 /setup.sh
 RUN /setup.sh
 
 # instructions from: http://docs.pgrouting.org/2.0/en/doc/src/installation/index.html#ubuntu-debian
-## Add pgRouting launchpad repository ("stable" or "unstable")
-apt-get install -y software-properties-common
-add-apt-repository ppa:georepublic/pgrouting-unstable
-apt-get update
-
 ## Install pgRouting packages
 apt-get install -y postgresql-9.3-pgrouting
 
