@@ -101,16 +101,6 @@ fi
 # This should show up in docker logs afterwards
 su - postgres -c "psql -l"
 
-# instructions from: http://docs.pgrouting.org/2.0/en/doc/src/installation/index.html#ubuntu-debian
-## Add pgRouting launchpad repository ("stable" or "unstable")
-apt-get install -y software-properties-common
-add-apt-repository ppa:georepublic/pgrouting-unstable
-apt-get update
-
-## Install pgRouting packages
-apt-get install -y postgresql-9.3-pgrouting
-
-apt-get install -y git
 
 PID=`cat /var/run/postgresql/9.3-main.pid`
 kill -9 ${PID}
