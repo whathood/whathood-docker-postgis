@@ -9,9 +9,9 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 
 # needed for apt-add-repository
-apt-get install -y software-properties-common
+RUN apt-get install -y software-properties-common
 ## Add pgRouting launchpad repository ("stable" or "unstable")
-add-apt-repository ppa:georepublic/pgrouting-unstable
+RUN add-apt-repository ppa:georepublic/pgrouting-unstable
 RUN apt-get -y update
 RUN apt-get -y install ca-certificates rpl pwgen
 
@@ -34,7 +34,7 @@ RUN /setup.sh
 
 # instructions from: http://docs.pgrouting.org/2.0/en/doc/src/installation/index.html#ubuntu-debian
 ## Install pgRouting packages
-apt-get install -y postgresql-9.3-pgrouting
+RUN apt-get install -y postgresql-9.3-pgrouting
 
 # We will run any commands in this when the container starts
 ADD start-postgis.sh /start-postgis.sh
