@@ -1,1 +1,1 @@
-docker build -t kartoza/postgis .
+sudo docker build -t quay.io/whathood/docker-postgis .

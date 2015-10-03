@@ -1,5 +1,6 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-FROM ubuntu:trusty
+FROM phusion/baseimage:0.9.15
+
 MAINTAINER Tim Sutton<tim@kartoza.com>
 
 RUN  export DEBIAN_FRONTEND=noninteractive
